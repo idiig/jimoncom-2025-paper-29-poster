@@ -1,6 +1,11 @@
 #+title: ロゴマークライセンス情報
+
+This logo image consists only of simple geometric shapes or text. It does not meet the threshold of originality needed for copyright protection, and is therefore in the [[https://en.wikipedia.org/wiki/Public_domain][public domain]].
+#+attr_html: :width 200px
 #+caption: 東京科学大学のロゴマーク ([[https://commons.wikimedia.org/wiki/File:Institute_of_Science_Tokyo_logo,_advanced.svg][wikidedia commons]]): This logo image consists only of simple geometric shapes or text. It does not meet the threshold of originality needed for copyright protection, and is therefore in the public domain. 
 [[./science-tokyo.svg]]
 
+#+attr_html: :width 200px
+This file is licensed under the [[https://creativecommons.org/licenses/by-sa/3.0/deed.en][Creative Commons Attribution-Share Alike 3.0 Unported license]]. 
 #+caption: 大阪大学のロゴマーク ([[https://commons.wikimedia.org/wiki/File:University_of_Osaka_logo,_F-2.svg][wikidedia commons]]): This file is licensed under the Creative Commons Attribution-Share Alike 3.0 Unported license. 
 [[./u-osaka.svg]]
