@@ -4,8 +4,8 @@
 			(setq org-latex-with-hyperref nil)
 			(setq org-latex-title-command "")
 			(setq org-latex-toc-command "")
-			(setq org-latex-pdf-process '("cd %o && latexmk -pdfdvi %f"))
-			(setq org-cite-export-processors '((latex bibtex "ipsjsort") 
+			(setq org-latex-pdf-process '("cd %o && latexmk - %f"))
+			(setq org-cite-export-processors '((latex biblatex "apa") 
 							   (html csl ".csl-styles/digital-scholarship-in-the-humanities.csl") 
 							   (t basic)))
 			
