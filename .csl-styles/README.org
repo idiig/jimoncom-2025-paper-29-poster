@@ -1,0 +1,19 @@
+#+title: スタイルファイルのライセンス情報
+* [[digital-scholarship-in-the-humanities.csl][digital-scholarship-in-the-humanities.csl]] 
+[[digital-scholarship-in-the-humanities.csl][digital-scholarship-in-the-humanities.csl]] is from [[https://citationstyles.org/][https://citationstyles.org/]] by open source Citation Style Language (CSL) project. It is licensed under the [[https://creativecommons.org/licenses/by-sa/3.0/][Creative Commons Attribution-Share Alike 3.0 Unported license]].
+
+#+begin_src text :tangle dital-scholarship-in-the-humanities.csl.license
+  SPDX-License-Identifier: CC-BY-SA-3.0
+  SPDX-FileCopyrightText: 2019 Federico Pianzola
+
+  This file is from the Citation Style Language project.
+  See https://citationstyles.org/
+  Original source: https://github.com/citation-style-language/styles
+#+end_src
+
+#+begin_src shell  :results output :dir ../LICENSES
+  nix-shell -p reuse --run "reuse download CC-BY-SA-3.0"
+#+end_src
+
+#+RESULTS:
+: Successfully downloaded ../LICENSES/CC-BY-SA-3.0.txt.
