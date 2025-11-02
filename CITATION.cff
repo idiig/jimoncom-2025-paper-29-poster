@@ -1,0 +1,21 @@
+cff-version: 1.2.0
+message: "If you use this data, please cite it as below. / このデータを使用する場合は、以下のように引用してください。"
+authors:
+  - family-names: Chen
+    given-names: Xudong
+    alias: "陳　旭東"
+    orcid: https://orcid.org/0000-0002-4542-2878
+    affiliation: "Institute of Science Tokyo"
+  - family-names: Hodošček
+    given-names: Bor
+    alias: "ホドシチェク　ボル"
+    orcid: https://orcid.org/0000-0003-2246-8774
+    affiliation: "The University of Osaka"
+  - family-names: Yamamoto
+    given-names: Hilofumi
+    alias: "山元　啓史"
+    orcid: https://orcid.org/0000-0001-6876-139X
+    affiliation: "Institute of Science Tokyo"
+title: "語彙プロファイルに見られる八代集の語彙変化"
+title-translated:
+  en: "Profile-based lexical change in the Hachidaishu"
