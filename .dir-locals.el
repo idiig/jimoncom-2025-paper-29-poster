@@ -30,6 +30,10 @@
 
 			(add-to-list 'org-export-filter-final-output-functions
 				     'my-html-image-width)))))
+
+ (latex-mode . ((eval . (progn
+			  (setq latex-run-command "latexmk")
+			  (setq LaTeX-command "lualatex -shell-escape -synctex=1 -interaction=nonstopmode -file-line-error %O %S")))))
  
  (nil . ((eval . (add-hook 'after-save-hook
                            (lambda ()
