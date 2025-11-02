@@ -32,7 +32,7 @@
 				     'my-html-image-width)))))
 
  (latex-mode . ((eval . (progn
-			  (setq latex-run-command "latexmk")
+			  (setq latex-run-command "latexmk %O %S")
 			  (setq LaTeX-command "lualatex -shell-escape -synctex=1 -interaction=nonstopmode -file-line-error %O %S")))))
  
  (nil . ((eval . (add-hook 'after-save-hook
