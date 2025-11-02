@@ -1,4 +1,4 @@
-#+title: スタイルファイルのライセンス情報
+#+title: スタイルファイル
 * [[digital-scholarship-in-the-humanities.csl][digital-scholarship-in-the-humanities.csl]] 
 [[digital-scholarship-in-the-humanities.csl][digital-scholarship-in-the-humanities.csl]] is from [[https://citationstyles.org/][https://citationstyles.org/]] by open source Citation Style Language (CSL) project. It is licensed under the [[https://creativecommons.org/licenses/by-sa/3.0/][Creative Commons Attribution-Share Alike 3.0 Unported license]].
 
