@@ -27,10 +27,12 @@
             inherit (pkgs.texlive)
               scheme-basic  # basic scheme
               latexmk       # for automatic compilation
+              luatex85      # for LuaLaTeX support
               luatexja      # for LuaLaTeX Japanese support
-              xkeyval       # for ifplatform
+              standalone    # for standalone document class
               fontspec      # Font selection
               pgf           # tikz package
+              pgfplots      # plotting package
               haranoaji     # Japanese font
               pxrubrica     # Japanese ruby annotation
               # Commonly used packages
@@ -49,9 +51,10 @@
           };
         in
           pkgs.mkShell {
-            packages = [ tex ];
+            packages = [ tex pkgs.pdf2svg ];
             
             shellHook = ''
+              
               echo ""
               echo "Available commands:"
               echo "  latexmk main.tex"
