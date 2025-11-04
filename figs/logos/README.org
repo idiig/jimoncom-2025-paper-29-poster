@@ -29,9 +29,9 @@ nix-shell -p reuse --run "reuse download CC0-1.0"
 : Successfully downloaded ../LICENSES/CC0-1.0.txt.
 
 * [[file:logos/osaka-u-logo.svg][University of Osaka Logo]]
-#+attr_html: :width 200px
 This file is licensed under the [[https://creativecommons.org/licenses/by-sa/3.0/deed.en][Creative Commons Attribution-Share
 Alike 3.0 Unported license]].
+#+attr_html: :width 200px
 #+caption: 大阪大学のロゴマーク ([[https://commons.wikimedia.org/wiki/File:University_of_Osaka_logo,_F-2.svg][wikidedia commons]]): This file is licensed under the Creative Commons Attribution-Share Alike 3.0 Unported license. 
 [[./u-osaka.svg]]
 
