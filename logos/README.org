@@ -1,0 +1,58 @@
+#+title:  Logos
+* [[file:logos/isct-logo.svg][Institute of Science Tokyo Logo]]
+#+attr_html: :width 200px
+#+caption: 東京科学大学のロゴマーク ([[https://commons.wikimedia.org/wiki/File:Institute_of_Science_Tokyo_logo,_advanced.svg][wikidedia commons]]): This logo image consists only of simple geometric shapes or text. It does not meet the threshold of originality needed for copyright protection, and is therefore in the public domain. 
+[[./science-tokyo.svg]]
+
+[[file:logos/isct-logo.svg][Institute of Science Tokyo Logo]] is from [[https://commons.wikimedia.org/wiki/File:Institute_of_Science_Tokyo_logo,_advanced.svg][Wikimedia Commons]]. This logo
+consists only of simple geometric shapes or text and does not meet the
+threshold of originality needed for copyright protection.
+
+#+begin_src text :tangle science-tokyo.svg.license
+SPDX-License-Identifier: CC0-1.0
+SPDX-FileCopyrightText: 2024 Institute of Science Tokyo
+
+This logo image consists only of simple geometric shapes or text.
+It does not meet the threshold of originality needed for copyright protection.
+
+Source: https://commons.wikimedia.org/wiki/File:Institute_of_Science_Tokyo_logo,_advanced.svg
+Original: https://partnerships.isct.ac.jp/plugins/cms/component_download_file.php?type=1&pageId=5628&key=9711540818445ed8f203646678ad3f06.pdf
+
+Note: This work may be protected as a trademark. Use must comply with trademark law.
+#+end_src
+
+#+begin_src shell :results output :dir ../../LICENSES
+nix-shell -p reuse --run "reuse download CC0-1.0"
+#+end_src
+
+#+RESULTS:
+: Successfully downloaded ../LICENSES/CC0-1.0.txt.
+
+* [[file:logos/osaka-u-logo.svg][University of Osaka Logo]]
+This file is licensed under the [[https://creativecommons.org/licenses/by-sa/3.0/deed.en][Creative Commons Attribution-Share
+Alike 3.0 Unported license]].
+#+attr_html: :width 200px
+#+caption: 大阪大学のロゴマーク ([[https://commons.wikimedia.org/wiki/File:University_of_Osaka_logo,_F-2.svg][wikidedia commons]]): This file is licensed under the Creative Commons Attribution-Share Alike 3.0 Unported license. 
+[[./u-osaka.svg]]
+
+[[file:logos/osaka-u-logo.svg][University of Osaka Logo]] is from [[https://commons.wikimedia.org/wiki/File:University_of_Osaka_logo,_F-2.svg][Wikimedia Commons]] by Osaka
+University. It is licensed under the [[https://creativecommons.org/licenses/by-sa/3.0/][Creative Commons
+Attribution-Share Alike 3.0 Unported license]].
+
+#+begin_src text :tangle u-osaka.svg.license
+SPDX-License-Identifier: CC-BY-SA-3.0
+SPDX-FileCopyrightText: 2024 Osaka University
+
+This file is from Wikimedia Commons.
+Source: https://commons.wikimedia.org/wiki/File:University_of_Osaka_logo,_F-2.svg
+Original: https://owl.osaka-u.ac.jp/material/VIGuidelines_ver2/view
+Author: Osaka University Public Relations Division
+#+end_src
+
+#+begin_src shell :results output :dir ../../LICENSES
+  rm -f CC-BY-SA-3.0.txt 2>/dev/null || true
+  nix-shell -p reuse --run "reuse download CC-BY-SA-3.0"
+#+end_src
+
+#+RESULTS:
+: Successfully downloaded ../LICENSES/CC-BY-SA-3.0.txt.

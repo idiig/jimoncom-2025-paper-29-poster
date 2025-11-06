@@ -1,0 +1,39 @@
+% SPDX-License-Identifier: CC-BY-SA-3.0
+% SPDX-FileCopyrightText: 2025 idiig
+\documentclass[border=2pt,tikz]{standalone}
+
+\usepackage{luatexja-fontspec}
+\setmainfont{HaranoAjiMincho-Regular.otf}
+\setsansfont{HaranoAjiGothic-Regular.otf}
+\usepackage{svg}
+\usepackage{adjustbox}
+\usepackage{xcolor}
+
+\begin{document}
+\fbox{%
+  \begin{adjustbox}{valign=t,raise=35pt}
+    \includegraphics[height=80pt]{../qr}%
+  \end{adjustbox}\quad\quad%
+  \rule[-10pt]{.3cm}{40pt}\quad\quad%
+  \begin{minipage}{1.25\textwidth}
+    {\Huge\bfseries 語彙プロファイルに見られる八代集の語彙変化}
+    \hfill\rule[5.5pt]{3.6cm}{2pt}\hfill 
+    \begin{adjustbox}{valign=t,raise=1ex}
+      \large\normalfont 陳~旭東$^{\dagger}$ \quad ホドシチェク~ボル$^{\ddagger}$ \quad 山元~啓史$^{\dagger}$
+    \end{adjustbox}\\
+    \begin{adjustbox}{valign=t,raise=20pt}
+      \space じんもんこん2025，2025年12月11日
+    \end{adjustbox}%
+    \hfill
+    \begin{adjustbox}{valign=t,raise=25pt}
+      $^{\dagger}$
+    \end{adjustbox}%
+    \includesvg[height=30pt]{../logos/science-tokyo}
+    \hspace*{1em}
+    \begin{adjustbox}{valign=t,raise=25pt}
+      $^{\ddagger}$
+    \end{adjustbox}%
+    \includesvg[height=30pt]{../logos/u-osaka}
+  \end{minipage}%
+}
+\end{document}
