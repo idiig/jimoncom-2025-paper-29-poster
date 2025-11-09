@@ -34,7 +34,7 @@
  (latex-mode . ((eval . (progn
 			  (setq latex-run-command "latexmk %O %S")
 			  (setq LaTeX-command "lualatex -shell-escape -synctex=1 -interaction=nonstopmode -file-line-error %O %S")))))
- 
+ (tex-mode . ((tex-command . "latexmk")))
  (nil . ((eval . (add-hook 'after-save-hook
                            (lambda ()
                              (when (and (buffer-file-name)
