@@ -1,0 +1,25 @@
+% SPDX-License-Identifier: CC-BY-SA-3.0
+% SPDX-FileCopyrightText: 2025 idiig
+\documentclass[border=2pt,tikz]{standalone}
+
+\usepackage{luatexja-fontspec}
+\setmainfont{HaranoAjiMincho-Regular.otf}
+\setsansfont{HaranoAjiGothic-Regular.otf}
+\usepackage{svg}
+\usepackage{adjustbox}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric,calc,positioning,chains,fit,shapes.callouts,arrows.meta,arrows}
+
+\begin{document}
+\begin{tikzpicture}[
+plain/.style={align=right,anchor=south,font={\huge\bfseries}},
+ar/.style={-latex,ultra thick},
+node distance=5em
+]
+\node[plain,red](Mat) {異変種の資料};
+\node[plain,blue,right=of Mat](Voc) {語彙差};
+\draw[ar,gray!90!white,dotted](Voc) --++(0,-3em) -| (Mat) node[pos=.25,fill=white]{分類に貢献する？};
+\draw[ar,red](Mat) --++(0,3em) -| (Voc) node[pos=.25,fill=white]{特定する};
+\end{tikzpicture}
+\end{document}
