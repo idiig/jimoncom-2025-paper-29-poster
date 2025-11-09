@@ -1,0 +1,40 @@
+% SPDX-License-Identifier: CC-BY-SA-3.0
+% SPDX-FileCopyrightText: 2025 idiig
+\documentclass[border=2pt]{standalone}
+
+\usepackage{luatexja-fontspec}
+\setmainfont{HaranoAjiMincho-Regular.otf}
+\setsansfont{HaranoAjiGothic-Regular.otf}
+\usepackage{svg}
+\usepackage{adjustbox}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{backgrounds,shadings}
+
+\begin{document}
+\begin{minipage}{\textwidth}
+  \begin{minipage}{\textwidth}
+    \includesvg[height=.20\textwidth]{../figs/deduction-circle-macro}%
+    \hspace{-1em}{\large は多い}
+  \end{minipage}\\
+  \tikz[baseline=(content.base)]{
+    \node[inner sep=0pt] (content) {%
+      \begin{minipage}{\textwidth}
+        \includesvg[height=.20\textwidth]{../figs/deduction-circle-micro}%
+        \quad{\Large\bfseries\color{gray} は少ない}\\[1em]
+        \Huge\bfseries $\Rightarrow$\quad
+        \begin{minipage}{0.5\textwidth}\Large\bfseries 語彙差を用いた\\八代集の分類を試み\end{minipage}
+      \end{minipage}%
+    };
+    \begin{scope}[on background layer]
+      \shade[outer color=pink!50, inner color=white] (content.center) ellipse (5cm and 1.6cm);
+    \end{scope}
+  }
+\end{minipage}
+% \begin{minipage}{.9\textwidth}
+%   \begin{itemize}
+%   \item[] 2資料の語彙差は，資料のテーマ・文化もろもろを含めた差
+%   \item[→] 焦点の絞り方
+%   \end{itemize}
+% \end{minipage}
+\end{document}
