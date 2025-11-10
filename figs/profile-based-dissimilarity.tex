@@ -1,0 +1,161 @@
+% SPDX-License-Identifier: CC-BY-SA-3.0
+% SPDX-FileCopyrightText: 2025 idiig
+
+\documentclass[tikz,border={0em 0em 0em 1.5cm}]{standalone}
+
+\usepackage{luatexja-fontspec}
+\setmainjfont{HaranoAjiMincho-Regular}
+\usepackage{tikz}
+\usetikzlibrary{tikzmark,calc,positioning,fit,arrows.meta}
+\usepackage{pgfplots}
+
+\usepackage{amsmath}
+\usepackage{blkarray}
+
+\tikzset{
+highlight1/.style={rectangle,rounded corners,fill=red!20,draw,
+fill opacity=0.5,thick,inner sep=3pt},
+highlight2/.style={rectangle,rounded corners,fill=blue!20,draw,
+fill opacity=0.5,thick,inner sep=3pt},
+}
+
+\begin{document}
+\begin{tikzpicture}[]
+\coordinate (pos1) at (0,0);
+\coordinate (pos2) at (8,0);
+\coordinate (pos3) at (0,-5.5);
+\coordinate (pos4) at (8,-5.5);
+%%
+\node[align=center] at (pos1) (mat1) {
+\begin{blockarray}{ccccc}
+\textbf{古今} & \textbf{後撰} & $\cdots$ & \textbf{新古今} \\
+\begin{block}{(cccc)c}
+  \tikzmarknode{m1}{28} & 18 & $\cdots$ & \tikzmarknode{m3}{12} & \textbf{桜花}\\
+  23 & 16 & $\cdots$ & 25 & \textbf{梅}\\
+  $\vdots$ & $\vdots$ & $\ddots$ & $\vdots$ & $\vdots$\\
+  \tikzmarknode{m2}{0} & 0 & $\cdots$ & \tikzmarknode{m4}{1} & \textbf{槿}\\
+\end{block}
+\end{blockarray}\\
+\small (a) Absolute frequency matrix$^*$\\
+\ttfamily\tiny $^*$Each column indicates a categorical vector of an anthology\\
+\tikz[overlay,remember picture]{
+    \node[highlight1,fit=(m1.north west) (m2.south east)] (v1) {};
+    \node[highlight1,fit=(m3.north west) (m4.south east)] (v2) {};
+    \draw ([yshift=1em]v1.north) [in=90,out=90] to node[pos=0.5,fill=white,align=center](measure1){\small Comparison by \textbf{likelihood ratio test};\\\normalsize return \textcolor{red}{$p$} value} ([yshift=1em]v2.north);
+    }
+};
+%%
+\node[align=center] at (pos2) (mat2) {
+\begin{blockarray}{ccccc}
+\textbf{古今} & \textbf{後撰} & $\cdots$ & \textbf{新古今} \\
+\begin{block}{(cccc)c}
+  \tikzmarknode{m1}{.14} & .07 & $\cdots$ & \tikzmarknode{m3}{.03} & \textbf{桜花}\\
+  .11 & .07 & $\cdots$ & .07 & \textbf{梅}\\
+  $\vdots$ & $\vdots$ & $\ddots$ & $\vdots$ & $\vdots$\\
+  \tikzmarknode{m2}{.00} & 0 & $\cdots$ & \tikzmarknode{m4}{.00} & \textbf{槿}\\
+\end{block}
+\end{blockarray}\\
+\small (b) Relative frequency matrix$^*$\\
+\ttfamily\tiny $^*$Each column indicates a categorical vector of an anthology\\
+\tikz[overlay,remember picture]{
+    \node[highlight2,fit=(m1.north west) (m2.south east)] (v1) {};
+    \node[highlight2,fit=(m3.north west) (m4.south east)] (v2) {};
+    \draw ([yshift=1em]v1.north) [in=90,out=90] to node[pos=0.5,fill=white,align=center](measure2){\small Dissimilarity Calculation with \textbf{city-block distance};\\\normalsize return \textcolor{blue}
+    {$D_{CB}$}
+    } ([yshift=1em]v2.north);
+    }
+};
+%%
+\node (dissim1) at ($(mat1.south)!0.5!(mat2.south)-(0,.5)$) {
+$
+Dissimilarity(\text{古今},\;\text{新古今}\;|\;\text{Category}=\text{\ttfamily 1.5520-植物類}) =
+\begin{cases}
+0, & \text{if } \textcolor{red}{p} > 0.05 \\
+\textcolor{blue}{D_{CB}}, & \text{if } \textcolor{red}{p} \leq 0.05
+\end{cases}
+$
+};
+%%
+\node[align=center] at (pos3) (mat3) {
+\normalsize When Category $=$ \texttt{1.5520-植物類}\\
+\begin{blockarray}{ccccc}
+\textbf{古今} & \textbf{後撰} & $\cdots$ & \textbf{新古今} \\
+\begin{block}{(cccc)c}
+  .00 &  & &  & \textbf{古今}\\
+  \tikzmarknode{m1}{.37} & .00 & &  & \textbf{後撰}\\
+  $\vdots$ & $\vdots$ & $\ddots$ &  & $\vdots$\\
+  \tikzmarknode{m2}{\underline{.51}} & .48 &   \tikzmarknode{m3}{$\cdots$} & .00 & \textbf{新古今}\\
+\end{block}
+\end{blockarray}\\
+\small (c) Single-category (flora) dissimilarity matrix\\
+\tikz[overlay,remember picture]{
+    \node[fit=(m1) (m2) (m3),inner sep=3pt] (disssim) {};
+    \path (disssim.south east) arc(-90:45:4pt) coordinate(aux1);
+    \draw[fill=green!20,fill opacity=0.5,thick] (aux1) arc(45:-90:4pt) -- ([xshift=4pt]disssim.south west)
+    arc(-90:-180:4pt) -- (disssim.north west) arc(180:45:4pt) -- cycle;
+    }
+};
+%%
+\node[align=center] at (pos4) (mat4) {
+\normalsize When Category $= i$\\
+\begin{blockarray}{ccccc}
+\textbf{古今} & \textbf{後撰} & $\cdots$ & \textbf{新古今} \\
+\begin{block}{(cccc)c}
+  .00 &  & &  & \textbf{古今}\\
+  \tikzmarknode{m1}{$D_{\text{古今,後撰}}^i$} & .00 & &  & \textbf{後撰}\\
+  $\vdots$ & $\vdots$ & $\ddots$ &  & $\vdots$\\
+  \tikzmarknode{m2}{\underline{$D_{\text{古今,新古今}}^i$}} & $D_{\text{新古今，後撰}}^i$ &   \tikzmarknode{m3}{$\cdots$} & .00 & \textbf{新古今}\\
+\end{block}
+\end{blockarray}\\
+\small (d) Single-category dissimilarity matrix$^*$\\
+\tiny \ttfamily $^*D_{\text{古今},\text{後撰}}^i = Dissimilarity(\text{古今},\text{新古今}\;|\;\text{Category}=i)$, and so on
+\tikz[overlay,remember picture]{
+    \node[fit=(m1) (m2) (m3),inner sep=3pt] (disssim) {};
+    \path (disssim.south east) arc(-90:45:4pt) coordinate(aux1);
+    \draw[fill=green!20,fill opacity=0.5,thick] (aux1) arc(45:-90:4pt) -- ([xshift=4pt]disssim.south west)
+    arc(-90:-180:4pt) -- (disssim.north west) arc(180:45:4pt) -- cycle;
+    }
+};
+%
+\node at ($(mat3.south)!0.5!(mat4.south)-(0,1)$) (dissim2){
+$
+GlobalDissimilarity(\text{古今},\;\text{新古今}) =
+\frac{\sum_{i}^{|\text{Category}|}Dissimilarity(\text{古今},\;\text{新古今}\;|\;\text{Category}=i)}{|\text{Category}|}
+$
+}; 
+%
+\node[below= 1.5em of dissim2,align=center] (mat5) {\scriptsize
+\begin{blockarray}{ccccccccc}
+\textbf{古今} & \textbf{後撰} & \textbf{拾遺} & \textbf{後拾遺} & \textbf{金葉} & \textbf{詞花} & \textbf{千載} & \textbf{新古今} \\
+\begin{block}{(cccccccc)c}
+  .00 & & & & & & & & \textbf{古今}\\
+  \tikzmarknode{m1}{$GD_{\text{古今},\text{後撰}}$} & .00 & & & & & & & \textbf{後撰}\\
+  $GD_{\text{古今},\text{拾遺}}$ & $GD_{\text{後撰},\text{拾遺}}$ & .00 & & & & & & \textbf{拾遺}\\
+  $GD_{\text{古今},\text{後拾遺}}$ & $GD_{\text{後撰},\text{後拾遺}}$ & $GD_{\text{拾遺},\text{後拾遺}}$ & .00 & & & & & \textbf{後拾遺}\\
+  $GD_{\text{古今},\text{金葉}}$ & $GD_{\text{後撰},\text{金葉集}}$ & $GD_{\text{拾遺},\text{金葉}}$ & $GD_{\text{後拾遺},\text{金葉}}$ & .00 & & & & \textbf{金葉}\\
+  $GD_{\text{古今},\text{詞花}}$ & $GD_{\text{後撰},\text{詞花}}$ & $GD_{\text{拾遺},\text{詞花集}}$ & $GD_{\text{後拾遺},\text{詞花}}$ & $GD_{\text{金葉},\text{詞花}}$ & .00 & & & \textbf{詞花}\\
+  $GD_{\text{古今},\text{千載}}$ & $GD_{\text{後撰},\text{千載集}}$ & $GD_{\text{拾遺},\text{千載}}$ & $GD_{\text{後拾遺},\text{千載}}$ & $GD_{\text{金葉},\text{千載}}$ & $GD_{\text{詞花},\text{千載}}$ & .00 & & \textbf{千載}\\
+  \tikzmarknode{m2}{\underline{$GD_{\text{古今},\text{新古今}}$}} & $GD_{\text{後撰},\text{新古今}}$ & $GD_{\text{拾遺},\text{新古今}}$ & $GD_{\text{後拾遺},\text{新古今}}$ & $GD_{\text{金葉},\text{新古今}}$ & $GD_{\text{詞花},\text{新古今}}$ & \tikzmarknode{m3}{$GD_{\text{千載},\text{新古今}}$} & .00 & \textbf{新古今}\\
+\end{block}
+\end{blockarray}\\
+\small (d) Aggregative-category dissimilarity matrix$^*$\\
+\tiny \ttfamily $^*GD_{\text{古今},\text{新古今}}^i = GlobalDissimilarity(\text{古今},\text{新古今})$, and so on
+\tikz[overlay,remember picture]{
+    \node[fit=(m1) (m2) (m3),inner sep=3pt] (disssim) {};
+    \path (disssim.south east) arc(-90:45:4pt) coordinate(aux1);
+    \draw[fill=green!20,fill opacity=0.5,thick] (aux1) arc(45:-90:4pt) -- ([xshift=4pt]disssim.south west)
+    arc(-90:-180:4pt) -- (disssim.north west) arc(180:45:4pt) -- cycle;
+    }
+};
+%
+\draw[-latex,double] (mat3) -- (mat4);
+%
+\draw[LaTeX-] ([yshift=-1.5em,xshift=1.5em]mat3.west) [out=150,in=180] to node[pos=0.7,rounded corners,fill=green!10,align=center]{\scriptsize results .51}  (dissim1.west);
+%
+%\draw[LaTeX-] ([xshift=-12em]dissim2.north) [out=90,in=240] to node[pos=0.35,rounded corners,fill=green!10,align=center]{\scriptsize weighted average of $i$ for $i$ $\in$ Category} ([yshift=4em]mat4.south west);
+%
+\draw[LaTeX-] ([yshift=-1.5em]mat5.west) [out=120,in=180] to node[pos=0.7,rounded corners,fill=green!10,align=center]{\scriptsize results $GD_{\text{古今},\text{新古今}}$}  (dissim2.west);
+%
+\end{tikzpicture}
+
+\end{document}
