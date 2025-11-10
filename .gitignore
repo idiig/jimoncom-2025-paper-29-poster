@@ -1,1 +1,7 @@
 /.emacs-lsp-paths
+*.fdb_latexmk
+*.aux
+*.fls
+*.log
+*.gz
+/figs/profile-based-dissimilarity.pdf
