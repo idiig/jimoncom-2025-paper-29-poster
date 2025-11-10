@@ -1,0 +1,40 @@
+% SPDX-License-Identifier: CC-BY-SA-3.0
+% SPDX-FileCopyrightText: 2025 idiig
+\documentclass[border=2pt]{standalone}
+
+\usepackage{luatexja-fontspec}
+\setmainfont{HaranoAjiMincho-Regular.otf}
+\setsansfont{HaranoAjiGothic-Regular.otf}
+\usepackage{svg}
+\usepackage{adjustbox}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{backgrounds,shadings}
+
+\begin{document}
+\begin{minipage}{\textwidth}
+  \begin{minipage}{\textwidth}
+    \includesvg[height=.25\textwidth]{../figs/simpson-paradox-1}%
+    \hspace{1em}%
+    \includesvg[height=.25\textwidth]{../figs/simpson-paradox-2}\\[-9em]
+    \quad{\Huge\bfseries\color{gray} Simpson's paradox}
+  \end{minipage}\\[6em]
+  \tikz[baseline=(content.east)]{
+    \node[inner sep=0pt] (content) {%
+      \begin{minipage}{\textwidth}
+        \Huge\bfseries $\Rightarrow$\quad
+        \begin{minipage}{0.5\textwidth}\Large\bfseries Within-profile(group) Comparison\end{minipage}
+      \end{minipage}%
+    };
+    \begin{scope}[on background layer]
+      \shade[inner color=pink!90,outer color=white] ([xshift=-2cm]content.center) ellipse (4.5cm and 1cm);
+    \end{scope}
+  }
+\end{minipage}
+% \begin{minipage}{.9\textwidth}
+%   \begin{itemize}
+%   \item[] 2資料の語彙差は，資料のテーマ・文化もろもろを含めた差
+%   \item[→] 焦点の絞り方
+%   \end{itemize}
+% \end{minipage}
+\end{document}
