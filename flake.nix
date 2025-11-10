@@ -49,7 +49,8 @@
               transparent
               catchfile
               # additional
-              blkarray;
+              blkarray
+            ;
           };
         in
           pkgs.mkShell {
