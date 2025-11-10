@@ -1,0 +1,24 @@
+% SPDX-License-Identifier: CC-BY-SA-3.0
+% SPDX-FileCopyrightText: 2025 idiig
+\documentclass[border=2pt]{standalone}
+
+\usepackage{luatexja-fontspec}
+\setmainfont{HaranoAjiMincho-Regular.otf}
+\setsansfont{HaranoAjiGothic-Regular.otf}
+\usepackage{svg}
+\usepackage{adjustbox}
+\usepackage{xcolor}
+
+\begin{document}
+\begin{minipage}{\textwidth}
+  \begin{minipage}{.3\textwidth}
+    \noindent%
+    \includesvg[width=.9\textwidth]{../figs/sereis-comparison}\\[1em]
+    \includesvg[width=\textwidth]{../modules/intro-a}\\[1em]
+    \includesvg[width=\textwidth]{../modules/intro-b}
+  \end{minipage}
+  \begin{minipage}{.6\textwidth}
+    \includesvg[height=\textwidth]{../figs/layered-comparison}
+  \end{minipage}
+\end{minipage}
+\end{document}
