@@ -1,0 +1,36 @@
+% SPDX-License-Identifier: CC-BY-SA-3.0
+% SPDX-FileCopyrightText: 2025 idiig
+\documentclass[border=2pt,tikz]{standalone}
+
+\usepackage{luatexja-fontspec}
+\setmainfont{HaranoAjiMincho-Regular.otf}
+\setsansfont{HaranoAjiGothic-Regular.otf}
+\usepackage{svg}
+\usepackage{multirow}
+\usepackage{booktabs}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usetikzlibrary{shapes.geometric,calc,positioning,chains,fit,shapes.callouts,arrows.meta,arrows}
+
+\begin{document}
+\begin{tikzpicture}
+  \node[](x){
+    \begin{tabular}{@{}lrrr@{}}
+      \toprule
+      \multicolumn{1}{l}{\multirow{2}{*}{\bfseries Lect}} & \multicolumn{2}{r}{\bfseries 語彙変数「ムグラ」} & \multicolumn{1}{l}{\multirow{2}{*}{\bfseries }} \\ \cmidrule(l){2-3} 
+      \multicolumn{1}{l}{} & 葎 & 八重葎 & \\ \midrule
+      歌集 $A$ & 100\% & 0\% & 100\% \\
+      歌集 $B$ & 62.5\% & 37.5\% & 100\% \\
+    \end{tabular}
+  };
+  \node[below=of x,align=center,font={\bfseries\scriptsize}](y) {
+    \begin{tabular}{@{}l@{}}
+      Profile-based dissimilarity$(A,B\mid \text{ムグラ})$\\
+      $\quad =|1.00 - 0.625|+|0.00-0.375|$\\
+      $\quad =0.75$
+    \end{tabular}
+  };
+  \draw[ultra thick,-latex] (x.east) --++ (0.5em,0) |- (y.east);
+\end{tikzpicture}
+\end{document}
