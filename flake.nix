@@ -47,7 +47,9 @@
               ulem
               svg
               transparent
-              catchfile;        # for \input commands
+              catchfile
+              # additional
+              blkarray;
           };
         in
           pkgs.mkShell {
