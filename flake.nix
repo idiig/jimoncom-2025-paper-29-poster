@@ -50,6 +50,8 @@
               catchfile
               # additional
               blkarray
+              booktabs
+              multirow
             ;
           };
         in
