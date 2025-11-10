@@ -1,0 +1,84 @@
+% SPDX-License-Identifier: CC-BY-SA-3.0
+% SPDX-FileCopyrightText: 2025 idiig
+\documentclass[border=2pt,tikz]{standalone}
+
+\usepackage{luatexja-fontspec}
+\setmainjfont{HaranoAjiMincho-Regular}
+\usepackage{tikz}
+
+\begin{document}
+
+\begin{tikzpicture}
+  % Define the cylinder outline with larger gaps between layers
+  \draw[thick] (0, 0) ellipse (6 and 1.5); % Top ellipse
+  \draw[thick] (0, -12) ellipse (6 and 1.5); % Bottom ellipse
+  \draw[thick] (-6, 0) -- (-6, -12); % Left vertical line
+  \draw[thick] (6, 0) -- (6, -12); % Right vertical line
+
+  % First layer - single ellipse
+  \fill[gray!50, opacity=0.5] (0, -2) ellipse (6 and 1.5);
+  \draw[thick,dashed] (0, -2) ellipse (6 and 1.5);
+
+  % Second layer - 4 ellipses with spacing
+  \begin{scope}
+    \clip (0, -5) ellipse (6 and 1.5);
+    \fill[gray!50, opacity=0.5] (-3.4, -5) ellipse (2.4 and 0.6);
+    \fill[gray!50, opacity=0.5] (3.4, -5) ellipse (2.4 and 0.6);
+    \fill[gray!50, opacity=0.5] (0, -4.1) ellipse (2.4 and 0.6);
+    \fill[gray!50, opacity=0.5] (0, -5.9) ellipse (2.4 and 0.6);
+  \end{scope}
+  \draw[thick,dashed] (0, -5) ellipse (6 and 1.5);
+
+  % Third layer - spaced out groups of 4
+  \begin{scope}
+    \clip (0, -8) ellipse (6 and 1.5);
+    % For each of the 4 positions from layer 2
+    \foreach \centerX/\centerY in {-3.4/-8, 3.4/-8, 0/-7.1, 0/-8.9} {
+      % Add 4 smaller ellipses with spacing
+      \fill[gray!50, opacity=0.5] (\centerX-1.2, \centerY) ellipse (1 and 0.25);
+      \fill[gray!50, opacity=0.5] (\centerX+1.2, \centerY) ellipse (1 and 0.25);
+      \fill[gray!50, opacity=0.5] (\centerX, \centerY-0.45) ellipse (1 and 0.25);
+      \fill[gray!50, opacity=0.5] (\centerX, \centerY+0.45) ellipse (1 and 0.25);
+    }
+  \end{scope}
+  \draw[thick,dashed] (0, -8) ellipse (6 and 1.5);
+
+  % Fourth layer - corresponding to each third layer ellipse
+  \begin{scope}
+    \clip (0, -11) ellipse (6 and 1.5);
+    % For each of the 4 positions from layer 2
+    \foreach \centerX/\centerY in {-3.4/-11, 3.4/-11, 0/-10.1, 0/-11.9} {
+      % For each third layer ellipse position
+      \foreach \thirdX/\thirdY in {
+        % Match the pattern of third layer
+        \centerX-1.2/\centerY,
+        \centerX+1.2/\centerY,
+        \centerX/\centerY-0.45,
+        \centerX/\centerY+0.45
+      } {
+        % Create 4 tiny ellipses matching each third layer ellipse
+        \fill[gray!50, opacity=0.5] (\thirdX-0.3, \thirdY) ellipse (0.25 and 0.06);
+        \fill[gray!50, opacity=0.5] (\thirdX+0.3, \thirdY) ellipse (0.25 and 0.06);
+        \fill[gray!50, opacity=0.5] (\thirdX, \thirdY-0.11) ellipse (0.25 and 0.06);
+        \fill[gray!50, opacity=0.5] (\thirdX, \thirdY+0.11) ellipse (0.25 and 0.06);
+      }
+    }
+  \end{scope}
+  \draw[thick,dashed] (0, -11) ellipse (6 and 1.5);
+
+  % Labels and arrows
+  \node[anchor=east,align=right,font={\Huge\bfseriest}] at (-8.8, -2) {全語彙からサンプル\\e.g.,\texttt{\{花橘, 雁\}}};
+  \draw[->, ultra thick] (-8.1, -2) -- (-6.3, -2);
+
+  \node[anchor=east,align=right,font={\Huge\bfseries}] at (-8.8, -5) {各意味分野からサンプル\\e.g.,\texttt{\{花橘, 稲, 桜花\}}};
+  \draw[->, ultra thick] (-8.1, -5) -- (-6.3, -5);
+
+  \node[anchor=east,align=right,font={\Huge\bfseries}] at (-8.8, -8) {各類義語群からサンプル\\e.g.,\texttt{\{葎, 八重葎\}}};
+  \draw[->, ultra thick] (-8.1, -8) -- (-6.3, -8);
+
+  \node[anchor=east,align=right,font={\Huge\bfseries}] at (-8.8, -11) {\color{gray}各同義語群からサンプル};
+  \draw[->, ultra thick] (-8.1, -11) -- (-6.3, -11);
+
+\end{tikzpicture}
+
+\end{document}
