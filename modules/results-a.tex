@@ -1,0 +1,37 @@
+% SPDX-License-Identifier: CC-BY-SA-3.0
+% SPDX-FileCopyrightText: 2025 idiig
+\documentclass[border=2pt]{standalone}
+
+\usepackage{luatexja-fontspec}
+\setmainfont{HaranoAjiMincho-Regular.otf}
+\setsansfont{HaranoAjiGothic-Regular.otf}
+\usepackage{svg}
+
+\begin{document}
+\begin{minipage}{1.8\textwidth}
+  \begin{minipage}{.5\textwidth}
+    \includesvg[width=\textwidth]{../figs/aggregate-path}
+  \end{minipage}%
+  \scalebox{0.5}{%
+    \begin{minipage}{.5\textwidth}
+      \begin{itemize}
+      \item 異なる水準のパターンに\underline{大きな相違が見られず}
+      \item 後拾遺で\textbf{正負転換}（0値横断）
+      \item クラスタリング：
+        \begin{itemize}
+        \item[◎] 「古今・後撰・拾遺」同クラスタ
+        \item[◎] 「後拾遺・詞花・千載」同クラスタ
+        \item[●] 「新古今」「金葉」は\textbf{中間水準で不一致}
+        \end{itemize}
+      \item 金葉以降の\textbf{往還}：
+        \begin{itemize}
+        \item[▽] 金葉（同時代重視）
+        \item[▼] 詞花（後拾遺集歌人重視）
+        \item[▽] 千載（同時代重視）
+        \item[▼] 新古今（本歌取り隆盛）
+        \end{itemize}
+      \end{itemize}
+    \end{minipage}%
+  }%
+\end{minipage}
+\end{document}
