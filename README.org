@@ -1,5 +1,74 @@
-#+title: Jimoncom 2025 paper 29 poster environment
-
-#+begin_src shell
+#+title: Jimoncom 2025 paper 29 poster presentation
+#+author: 陳 旭東（東京科学大学 環境・社会理工学院）, ホドシチェク ボル（大阪大学 大学院人文学研究科）, 山元 啓史（東京科学大学 環境・社会理工学院）
+#+date: 2025:12:12
+#+bibliography: references.bib
+#+REVEAL_ROOT: #+REVEAL_ROOT: https://cdn.jsdelivr.net/npm/reveal.js@4.6.0
+#+REVEAL_THEME: simple
+#+REVEAL_TRANS: slide
+#+begin_src shell :eval nil :exports none
   nix develop --impure --extra-experimental-features nix-command --extra-experimental-features flakes
 #+end_src
+* はじめに
+** 集合論基盤の語彙比較
+[[./figs/series-comparison.svg]]
+** 語彙差の由来が明確でない
+[[./modules/intro-a.svg]]
+** 語彙差を用いた分類の手法が少ない
+[[./modules/intro-b.svg]]
+** テーマ差を語彙差から段階的に除外する可能性
+[[./figs/layered-comparison.svg]]
+* 方法
+** 材料
+- 八代集：
+  + 古今→後撰→拾遺→後拾遺→金葉→詞花→千載→新古今
+
+- 八代集語彙データベース [cite/cf:@nakamura1999Kokubungaku;
+  @shinhen1996CDROM; @Hodoscek2022Developmenta]
+  #+begin_src xml
+    <text>
+      <body>
+        <div type="anthology" n="Kokinshu">
+          <lg type="waka" n="1">
+            <l>
+              <w pos="N.g" lemma="年" msd="UPosTag=NOUN|IPAPosTag=名詞-一般|Unidicpostag=名詞-普通名詞-一般|Lemmareading=とし|Kanji=年|Kanjireading=とし|WLSPH=1.1630|WLSP=1.1630|WLSPDescription=体-関係-時間-年">年</w>
+              <w pos="P.c.g" lemma="の" msd="UPosTag=ADP|IPAPosTag=助詞-格助詞-一般|UniDicPosTag=助詞-格助詞|LemmaReading=の|Kanji=の|KanjiReading=の|WLSPH=8.0061">の</w>
+              <w pos="N.g" lemma="内" msd="UPosTag=NOUN|IPAPosTag=名詞-一般|UniDicPosTag=名詞-普通名詞-一般|LemmaReading=うち|Kanji=内|KanjiReading=うち|WLSPH=1.1770|WLSP=1.1770|WLSPDescription=体-関係-空間-内外">内</w>
+              <w pos="P.c.g" lemma="に" msd="UPosTag=ADP|IPAPosTag=助詞-格助詞-一般|UniDicPosTag=助詞-格助詞|LemmaReading=に|Kanji=に|KanjiReading=に|WLSPH=8.0061">に</w>
+  #+end_src
+** 類義サンプルにおける語彙差の測定 [cite/cf:@Geeraerts2023Lexical]
+[[./modules/methods-a.svg]]
+** 意味の類似度に基づく3水準の語群サンプリング
+[[./modules/methods-b.svg]]
+*** 分類語彙番号に準拠
+
+#+begin_example
+    　　1.1642  昨年
+    　　├─────────────────────
+    　　└─ 1                    体　：類
+    　　    └─ 1.1              関係：部門
+    　　        └─ 1.16         時間：中項目
+    　　            └─ 1.1642   過去：分類項目
+#+end_example
+
+| 水準           | 説明                                  | サンプリング基準             | 例               | サンプル数 |
+|----------------+---------------------------------------+------------------------------+------------------+------------|
+| ランダム群     | 意味的統制なし                        | 分類番号分類項目不一致       | {花橘, 雁}       |        196 |
+| 同上位概念群   | 広義の意味分野共有（例：「植物」語彙） | 分類番号分類項目一致         | {花橘, 稲, 桜花} |        928 |
+| 類義・同義語群 | 狭義の概念共有（例：「植物-葎」語彙）  | 分類番号同語判定＋目視選別 | {葎, 八重葎}     |         43 |
+
+*** サンプルごとに八代集のpairwise非類似度計算
+[[./modules/methods-c.svg]]
+* 結果
+** 隣接歌集の語彙差がその他より大きいペアがあるか
+[[./modules/results-b.svg]]
+** 和歌集の変動のパスの特徴
+[[./modules/results-a.svg]]
+* 結論
+- 隣接歌集間で語彙差が大きいペアが存在しなかった
+  + 「古今→後撰」の変化が小さい傾向
+  + 「拾遺→後拾遺」「金葉→詞花」の変化が大きい傾向
+- 語彙差の変動のパスは文学史の説明に対応あり
+- 三水準での結果が一致の傾向
+  + →題材差が大きい資料で再検討すべき
+* 参考文献
+#+print_bibliography:
