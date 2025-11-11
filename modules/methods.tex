@@ -1,0 +1,24 @@
+% SPDX-License-Identifier: CC-BY-SA-3.0
+% SPDX-FileCopyrightText: 2025 idiig
+\documentclass[border=2pt]{standalone}
+
+\usepackage{luatexja-fontspec}
+\setmainfont{HaranoAjiMincho-Regular.otf}
+\setsansfont{HaranoAjiGothic-Regular.otf}
+\usepackage{svg}
+\usepackage{adjustbox}
+\usepackage{xcolor}
+
+\begin{document}
+\begin{minipage}{\textwidth}
+  \begin{minipage}{.42\textwidth}
+    \noindent\quad\\\vfill
+    \noindent%
+    \includesvg[width=\textwidth]{../modules/methods-a}\\[1em]
+    \includesvg[width=\textwidth]{../modules/methods-b}\\[1em]
+  \end{minipage}\hfill
+  \begin{minipage}{.55\textwidth}
+    \includesvg[width=\textwidth]{../modules/methods-c}
+  \end{minipage}
+\end{minipage}
+\end{document}
