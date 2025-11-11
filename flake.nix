@@ -52,6 +52,8 @@
               blkarray
               booktabs
               multirow
+              filehook
+              svn-prov
             ;
           };
         in
