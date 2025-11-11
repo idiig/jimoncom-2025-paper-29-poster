@@ -5,3 +5,4 @@
 *.log
 *.gz
 /figs/profile-based-dissimilarity.pdf
+/modules/svg-inkscape/
