@@ -11,26 +11,26 @@
 \usepackage{xcolor}
 \usepackage{tikz}
 \usepackage{pgfplots}
-\usetikzlibrary{shapes.geometric,calc,positioning,chains,fit,shapes.callouts,arrows.meta,arrows}
+\usetikzlibrary{positioning,arrows.meta,arrows}
 
 \begin{document}
 \begin{tikzpicture}
   \node[](x){
     \begin{tabular}{@{}lrrr@{}}
       \toprule
-      \multicolumn{1}{l}{\multirow{2}{*}{\bfseries Lect}} & \multicolumn{2}{r}{\bfseries 語彙変数「ムグラ」} & \multicolumn{1}{l}{\multirow{2}{*}{\bfseries }} \\ \cmidrule(l){2-3} 
+      \multicolumn{1}{l}{\multirow{2}{*}{\bfseries 比較対}} & \multicolumn{2}{r}{\bfseries 「ムグラ」語群} & \multicolumn{1}{l}{\multirow{2}{*}{\bfseries }} \\ \cmidrule(l){2-3} 
       \multicolumn{1}{l}{} & 葎 & 八重葎 & \\ \midrule
       歌集 $A$ & 100\% & 0\% & 100\% \\
-      歌集 $B$ & 62.5\% & 37.5\% & 100\% \\
+      歌集 $B$ & 62.5\% & 37.5\% & 100\%
     \end{tabular}
   };
-  \node[below=of x,align=center,font={\bfseries\scriptsize}](y) {
+  \node[below=.1em of x,align=center,font={\bfseries\footnotesize}](y) {
     \begin{tabular}{@{}l@{}}
       Profile-based dissimilarity$(A,B\mid \text{ムグラ})$\\
       $\quad =|1.00 - 0.625|+|0.00-0.375|$\\
-      $\quad =0.75$
+      $\quad =0.75$\bottomrule
     \end{tabular}
   };
-  \draw[ultra thick,-latex] (x.east) --++ (0.5em,0) |- (y.east);
+  \draw[ultra thick,-latex] ([yshift=-1em]x.east) --++ (2em,0) |- (y.east);
 \end{tikzpicture}
 \end{document}
