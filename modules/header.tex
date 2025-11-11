@@ -1,6 +1,6 @@
 % SPDX-License-Identifier: CC-BY-SA-3.0
 % SPDX-FileCopyrightText: 2025 idiig
-\documentclass[border=0pt,tikz]{standalone}
+\documentclass[border=0pt]{standalone}
 
 \usepackage{luatexja-fontspec}
 \setmainfont{HaranoAjiMincho-Regular.otf}
@@ -8,51 +8,47 @@
 \usepackage{svg}
 \usepackage{adjustbox}
 \usepackage{xcolor}
+\definecolor{DarkBlueST}{HTML}{1c3177}
+\definecolor{LightBlueST}{HTML}{7f96c2}
 
 \begin{document}
-\noindent\rule[]{1.6\textwidth}{1em}\\[-1em]
-\noindent\rule[]{1.6\textwidth}{.1em}\\[1em]
-{\centering
-  \begin{adjustbox}{valign=t,raise=35pt}
-    \includegraphics[width=.25\textwidth]{../qr}%
-  \end{adjustbox}\hspace{.02\textwidth}%
-  \rule[-10pt]{.02\textwidth}{40pt}%
-  \hspace{.005\textwidth}
-  \rule[-10pt]{.005\textwidth}{40pt}%
-  \hspace{.03\textwidth}%
-  \begin{minipage}{1.25\textwidth}
-    {\Huge\bfseries 語彙プロファイルに見られる八代集の語彙変化}
-    \hfill\rule[5.5pt]{3.6cm}{2pt}\hfill 
-    \begin{adjustbox}{valign=t,raise=1ex}
-      \large\normalfont 陳~旭東$^{\dagger}$ \quad ホドシチェク~ボル$^{\ddagger}$ \quad 山元~啓史$^{\dagger}$
-    \end{adjustbox}\\
-    \begin{adjustbox}{valign=t,raise=20pt}
-      \space じんもんこん2025，2025年12月11日
-    \end{adjustbox}%
-    \hfill
-    \begin{adjustbox}{valign=t,raise=25pt}
-      $^{\dagger}$
-    \end{adjustbox}%
-    \includesvg[height=30pt]{../logos/science-tokyo}
-    \hspace*{1em}
-    \begin{adjustbox}{valign=t,raise=25pt}
-      $^{\ddagger}$
-    \end{adjustbox}%
-    \includesvg[height=30pt]{../logos/u-osaka}
-  \end{minipage} 
-}\\[1em]
-{\centering\quad
-  \begin{minipage}{1.55\textwidth}\large
-    本研究では，八代集の語彙変化について，言語の内容を見る視座と言語の様
-    式を見る視座を調整するための計算手法を論じた．方法としては，同義類義
-    の語群，同上位概念の語群，関係なしの語群の3水準で小さいサンプルを用意
-    し，2歌集間のサンプル内の語彙変化量を語形分布の非類似度で計算した．こ
-    の変化量に基づき，八代集の (1) 変化最大の隣接2歌集，(2) 時代区
-    分，(3)推移のパターンを検討した．結果として，3水準の分析結果が共通し，
-    調整の有効性はさらなる検証を要する．一方，分析結果は文学史においても
-    合理的に説明しうる内容となった．
+\begin{minipage}{\linewidth}
+%   \begin{minipage}{\linewidth}
+%     {\color{DarkBlueST}\noindent\rule[0pt]{1\textwidth}{.8em}}\\[-1em]
+%     {\color{LightBlueST}\noindent\rule[0pt]{1\textwidth}{.1em}}
+%   \end{minipage}\\[0.5em]
+  \begin{minipage}{\linewidth}
+    {\centering
+      \begin{adjustbox}{valign=t,raise=25pt}
+        \includegraphics[width=.17\linewidth]{../qr}%
+      \end{adjustbox}%
+      \hfill%
+      {\color{DarkBlueST}\rule[-15pt]{.01\textwidth}{40pt}}%
+      \hspace{1pt}%
+      {\color{LightBlueST}\rule[-10pt]{.005\textwidth}{40pt}}%
+      \hfill%
+      \begin{minipage}{.78\textwidth}
+        {\LARGE\bfseries 語彙プロファイルに見られる八代集における変化}
+        \hfill%
+        \begin{adjustbox}{valign=t,raise=2pt}\scriptsize\normalfont 陳~旭東$^{\dagger}$ \quad ホドシチェク~ボル$^{\ddagger}$ \quad 山元~啓史$^{\dagger}$
+        \end{adjustbox}
+        \begin{adjustbox}{valign=t,raise=0pt}
+          \small\space じんもんこん2025，2025年12月12日
+        \end{adjustbox}%
+        \hfill
+        \begin{adjustbox}{valign=t,raise=5pt}
+          $^{\dagger}$
+        \end{adjustbox}%
+        \includesvg[height=.05\textwidth]{../logos/science-tokyo}
+        \hspace*{1em}
+        \begin{adjustbox}{valign=t,raise=5pt}
+          $^{\ddagger}$
+        \end{adjustbox}%
+        \includesvg[height=.05\textwidth]{../logos/u-osaka}
+      \end{minipage} 
+    }
+
   \end{minipage}
-}\\[1em]
-\noindent\rule[]{1.6\textwidth}{.1em}\\
-\noindent\rule[]{1.6\textwidth}{1em}\\
+
+\end{minipage}
 \end{document}
