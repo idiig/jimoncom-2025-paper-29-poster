@@ -1,0 +1,53 @@
+\documentclass{article}
+\pagestyle{empty}
+\usepackage[a0paper,margin=1in]{geometry}
+\usepackage[subpreambles=true]{standalone}
+\standaloneconfig{mode=buildnew}
+\usepackage{graphicx,calc}
+\usepackage{adjustbox}
+\usepackage{svg}
+\usepackage{luatexja-fontspec}
+\setmainfont{HaranoAjiMincho-Regular.otf}
+\setsansfont{HaranoAjiGothic-Regular.otf}
+\usepackage{xcolor}
+\definecolor{DarkBlueST}{HTML}{1c3177}
+\definecolor{LightBlueST}{HTML}{7f96c2}
+\renewcommand{\section}[2]{%
+  \noindent
+  \rule[0pt]{#2\linewidth}{3pt}%
+  \hfill%
+  \scalebox{10}{\bfseries #1}%
+  \par\vspace{2em}%
+}
+
+\begin{document}
+\begin{minipage}{\linewidth}
+  \begin{minipage}{\linewidth}
+    {\color{DarkBlueST}\noindent\rule[0pt]{1\textwidth}{.8em}}\\[-1em]
+    {\color{LightBlueST}\noindent\rule[0pt]{1\textwidth}{.1em}}
+  \end{minipage}\\[0.5em]
+  \begin{center} \includesvg[width=\linewidth]{./modules/header}
+  \end{center}
+  \begin{minipage}{\linewidth}
+    \section{結果1.}{.85}
+    \noindent\includesvg[width=\linewidth]{./modules/results-a}
+  \end{minipage}
+  \vfill
+  \begin{minipage}{.47\linewidth}
+    \section{結果2.}{.6}
+    \includesvg[width=\linewidth]{./modules/results-b}%
+  \end{minipage}\hfill%
+  \begin{minipage}{.43\linewidth}
+    \begin{minipage}{\linewidth}
+      \section{背景 }{.7}
+      \includesvg[width=\linewidth]{./modules/intro}
+    \end{minipage}
+    
+    \vfill
+    \begin{minipage}{\linewidth}
+      \section{手法 }{.7}
+      \includesvg[width=\linewidth]{./modules/methods-vertical}
+    \end{minipage}
+  \end{minipage}
+\end{minipage}
+\end{document}
