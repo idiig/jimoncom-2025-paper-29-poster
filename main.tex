@@ -1,11 +1,16 @@
 \documentclass{article}
 \pagestyle{empty}
-\usepackage[a0paper,margin=1in]{geometry}
+\usepackage[a0paper,
+left=1in,
+right=1in,
+top=0in,
+bottom=0in
+]{geometry}
 \usepackage[subpreambles=true]{standalone}
 \standaloneconfig{mode=buildnew}
 \usepackage{graphicx,calc}
 \usepackage{adjustbox}
-\usepackage{svg}
+\usepackage[inkscapearea=page]{svg}
 \usepackage{luatexja-fontspec}
 \setmainfont{HaranoAjiMincho-Regular.otf}
 \setsansfont{HaranoAjiGothic-Regular.otf}
@@ -14,40 +19,48 @@
 \definecolor{LightBlueST}{HTML}{7f96c2}
 \renewcommand{\section}[2]{%
   \noindent
-  \rule[0pt]{#2\linewidth}{3pt}%
+  {\color{LightBlueST}\rule[0pt]{#2\linewidth}{10pt}}%
   \hfill%
-  \scalebox{10}{\bfseries #1}%
+  \scalebox{10}{\bfseries\color{DarkBlueST} #1}%
   \par\vspace{2em}%
 }
 
 \begin{document}
 \begin{minipage}{\linewidth}
+  \noindent%
   \begin{minipage}{\linewidth}
-    {\color{DarkBlueST}\noindent\rule[0pt]{1\textwidth}{.8em}}\\[-1em]
-    {\color{LightBlueST}\noindent\rule[0pt]{1\textwidth}{.1em}}
-  \end{minipage}\\[0.5em]
-  \begin{center} \includesvg[width=\linewidth]{./modules/header}
+    {\color{DarkBlueST}\noindent\rule[0pt]{\linewidth}{9em}}\\[1em]
+    {\color{LightBlueST}\noindent\rule[0pt]{\linewidth}{2em}}
+  \end{minipage}\\[0em]
+  \begin{center}
+    \includesvg[inkscapelatex=false,width=\linewidth]{./modules/header}
   \end{center}
+  \vspace{-6em}
   \begin{minipage}{\linewidth}
     \section{結果1.}{.85}
-    \noindent\includesvg[width=\linewidth]{./modules/results-a}
+    \noindent\includesvg[inkscapelatex=false,width=\linewidth]{./modules/results-a}
   \end{minipage}
   \vfill
   \begin{minipage}{.52\linewidth}
     \section{結果2.}{.6}
-    \includesvg[width=\linewidth]{./modules/results-b}%
+    \includesvg[inkscapelatex=false,width=\linewidth]{./modules/results-b}%
   \end{minipage}\hfill%
   \begin{minipage}{.43\linewidth}
     \begin{minipage}{\linewidth}
       \section{背景 }{.7}
-      \includesvg[width=\linewidth]{./modules/intro}
+      \includegraphics[width=\linewidth]{./modules/intro.pdf}
     \end{minipage}
     
     \vfill
     \begin{minipage}{\linewidth}
       \section{手法 }{.7}
-      \includesvg[width=\linewidth]{./modules/methods-vertical}
+      \includesvg[inkscapelatex=false,width=\linewidth]{./modules/methods-vertical}
     \end{minipage}
-  \end{minipage}
+  \end{minipage}\\
+  \vfill
+  \begin{minipage}{\linewidth}
+    {\color{LightBlueST}\noindent\rule[0pt]{\linewidth}{2em}}
+  \end{minipage}\\[0em]
+
 \end{minipage}
 \end{document}
