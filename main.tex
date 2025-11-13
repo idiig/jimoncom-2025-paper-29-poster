@@ -1,11 +1,6 @@
 \documentclass{article}
 \pagestyle{empty}
-\usepackage[a0paper,
-left=1in,
-right=1in,
-top=0in,
-bottom=0in
-]{geometry}
+\usepackage[a0paper,margin=0in]{geometry}
 \usepackage[subpreambles=true]{standalone}
 \standaloneconfig{mode=buildnew}
 \usepackage{graphicx,calc}
@@ -25,42 +20,39 @@ bottom=0in
   \par\vspace{2em}%
 }
 
-\begin{document}
+\begin{document}\noindent
 \begin{minipage}{\linewidth}
   \noindent%
   \begin{minipage}{\linewidth}
-    {\color{DarkBlueST}\noindent\rule[0pt]{\linewidth}{9em}}\\[1em]
-    {\color{LightBlueST}\noindent\rule[0pt]{\linewidth}{2em}}
-  \end{minipage}\\[0em]
+    {\color{DarkBlueST}\noindent\rule[0pt]{\linewidth}{5em}}\\[1em]
+    {\color{LightBlueST}\noindent\rule[0pt]{\linewidth}{1em}}
+  \end{minipage}\\[-.8em]
   \begin{center}
-    \includesvg[inkscapelatex=false,width=\linewidth]{./modules/header}
+    \includesvg[inkscapelatex=false,width=.98\linewidth]{./modules/header}
   \end{center}
-  \vspace{-6em}
+  \vspace{-7em}
   \begin{minipage}{\linewidth}
-    \section{結果1.}{.85}
+    \section{結果1.}{.8}
     \noindent\includesvg[inkscapelatex=false,width=\linewidth]{./modules/results-a}
   \end{minipage}
-  \vfill
-  \begin{minipage}{.52\linewidth}
+  \vspace{1em}
+  \noindent\rule[-2em]{\linewidth}{2pt}\\
+  \begin{minipage}{.503\linewidth}
     \section{結果2.}{.6}
     \includesvg[inkscapelatex=false,width=\linewidth]{./modules/results-b}%
-  \end{minipage}\hfill%
+  \end{minipage}%
+  \hfill\rule[-.47\linewidth]{2pt}{.945\linewidth}\hfill%
   \begin{minipage}{.43\linewidth}
     \begin{minipage}{\linewidth}
-      \section{背景 }{.7}
+      \section{背景 }{.6}
       \includegraphics[width=\linewidth]{./modules/intro.pdf}
     \end{minipage}
     
-    \vfill
+    \vspace{-5em}
     \begin{minipage}{\linewidth}
-      \section{手法 }{.7}
+      \section{手法 }{.6}
       \includesvg[inkscapelatex=false,width=\linewidth]{./modules/methods-vertical}
     \end{minipage}
-  \end{minipage}\\
-  \vfill
-  \begin{minipage}{\linewidth}
-    {\color{LightBlueST}\noindent\rule[0pt]{\linewidth}{2em}}
-  \end{minipage}\\[0em]
-
+  \end{minipage}
 \end{minipage}
 \end{document}
