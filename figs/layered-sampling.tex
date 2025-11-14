@@ -5,6 +5,8 @@
 \usepackage{luatexja-fontspec}
 \setmainjfont{HaranoAjiMincho-Regular}
 \usepackage{tikz}
+\usetikzlibrary{positioning}
+\usepackage[colorlinks=true]{hyperref}
 
 \begin{document}
 
@@ -65,7 +67,8 @@
     }
   \end{scope}
   \draw[thick,dashed] (0, -11) ellipse (6 and 1.5);
-
+  \node[below=of north,align=right,font={\LARGE\bfseriest}] at (-11, -13) {Note: Figure is inspired and remade from \href{https://sequencecomparison.github.io/}{List (2014: 13)}};
+  
   % Labels and arrows
   \node[anchor=east,align=right,font={\Huge\bfseriest}] at (-8.8, -2) {全語彙からサンプル\\e.g.,\texttt{\{花橘, 雁\}}};
   \draw[->, ultra thick] (-8.1, -2) -- (-6.3, -2);
@@ -80,5 +83,4 @@
   \draw[->, ultra thick] (-8.1, -11) -- (-6.3, -11);
 
 \end{tikzpicture}
-
 \end{document}

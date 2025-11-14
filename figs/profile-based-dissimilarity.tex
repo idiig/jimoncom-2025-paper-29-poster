@@ -1,6 +1,5 @@
 % SPDX-License-Identifier: CC-BY-SA-3.0
 % SPDX-FileCopyrightText: 2025 idiig
-
 \documentclass[tikz,border={0em 0em 0em 1.5cm}]{standalone}
 
 \usepackage{luatexja-fontspec}
@@ -8,6 +7,7 @@
 \usepackage{tikz}
 \usetikzlibrary{tikzmark,calc,positioning,fit,arrows.meta}
 \usepackage{pgfplots}
+\usepackage[colorlinks=true]{hyperref}
 
 \usepackage{amsmath}
 \usepackage{blkarray}
@@ -139,7 +139,8 @@ $
 \end{block}
 \end{blockarray}\\
 \small (d) Aggregative-category dissimilarity matrix$^*$\\
-\tiny \ttfamily $^*GD_{\text{古今},\text{新古今}}^i = GlobalDissimilarity(\text{古今},\text{新古今})$, and so on
+\tiny \ttfamily $^*GD_{\text{古今},\text{新古今}}^i = GlobalDissimilarity(\text{古今},\text{新古今})$, and so on\\[1em]
+Based on \href{https://link.springer.com/article/10.1023/A:1025019216574}{Speelman et al., (2003)}
 \tikz[overlay,remember picture]{
     \node[fit=(m1) (m2) (m3),inner sep=3pt] (disssim) {};
     \path (disssim.south east) arc(-90:45:4pt) coordinate(aux1);

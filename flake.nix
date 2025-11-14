@@ -54,6 +54,7 @@
               multirow
               filehook
               svn-prov
+              tikzmark
             ;
           };
         in
